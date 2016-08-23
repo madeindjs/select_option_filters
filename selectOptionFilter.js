@@ -36,8 +36,9 @@ function add_filter(select_id, placeholder ) {
 // create a select tag with only first word group 
 function add_first_word_filter(select_id){
 
-	// get the select tag
+	// get the select tag & hide it
 	var select_tag = document.getElementById(select_id);
+	select_tag.style.display = 'none';
 
 	// create a selects tags
 	var firstSearch = document.createElement('select');
