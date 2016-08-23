@@ -1,8 +1,14 @@
 function add_filter(select_id) {
-	searchBox = document.querySelector("#searchbox");
+
+	// get the select tag
 	select_tag = document.getElementById(select_id);
-	
-	searchBox.addEventListener("keyup", function (e) {
+
+	// create a simple input and insert just before the select tag
+	var searchInput = document.createElement('input');
+	searchInput.placeholder='Search into theses options';
+	select_tag.parentElement.insertBefore(searchInput, select_tag);
+
+	searchInput.addEventListener("keyup", function (e) {
 		var text = e.target.value; 
 		var options = select_tag.options; 
 		for (var i = 0; i < options.length; i++) {
@@ -17,7 +23,7 @@ function add_filter(select_id) {
 				option.selected = true;
 				return;
 			}
-			searchBox.selectedIndex = 0;
+			searchInput.selectedIndex = 0;
 		}
 	});
 }
