@@ -4,51 +4,37 @@
 	<meta charset="utf-8">
 	<title>Select Option Filter</title>
 	<style type="text/css">
-		html, body{width:100%;}
-		form{width:400px;margin:auto;}
-		label,input,select{display:block;width:100%;font-size: 24px}
+		html{width:100%;}
+		body{width:400px;margin:auto;}
+		label,input,select{display:block;width:100%;font-size: 18px}
 	</style>
 </head>
 <body>
 	<h1>Select Option Filter</h1>
 
+
+
+	<h2>Simple search filter</h2>
 	<!-- snippet bellow from https://jqueryui.com/autocomplete/#combobox -->
-	<form>
 
-		<label>Your preferred programming language:</label>
+	<label>Your preferred programming language:</label>
 
-		<select id="combobox">
-			<option value="">Select one...</option>
-			<option value="ActionScript">ActionScript</option>
-			<option value="AppleScript">AppleScript</option>
-			<option value="Asp">Asp</option>
-			<option value="BASIC">BASIC</option>
-			<option value="C">C</option>
-			<option value="C++">C++</option>
-			<option value="Clojure">Clojure</option>
-			<option value="COBOL">COBOL</option>
-			<option value="ColdFusion">ColdFusion</option>
-			<option value="Erlang">Erlang</option>
-			<option value="Fortran">Fortran</option>
-			<option value="Groovy">Groovy</option>
-			<option value="Haskell">Haskell</option>
-			<option value="Java">Java</option>
-			<option value="JavaScript">JavaScript</option>
-			<option value="Lisp">Lisp</option>
-			<option value="Perl">Perl</option>
-			<option value="PHP">PHP</option>
-			<option value="Python">Python</option>
-			<option value="Ruby">Ruby</option>
-			<option value="Scala">Scala</option>
-			<option value="Scheme">Scheme</option>
-		</select>
-	</form>
+	<select id="combobox">
+		<option value="">Select one...</option><option value="ActionScript">ActionScript</option><option value="AppleScript">AppleScript</option><option value="Asp">Asp</option><option value="BASIC">BASIC</option><option value="C">C</option><option value="C++">C++</option><option value="Clojure">Clojure</option><option value="COBOL">COBOL</option><option value="ColdFusion">ColdFusion</option><option value="Erlang">Erlang</option><option value="Fortran">Fortran</option><option value="Groovy">Groovy</option><option value="Haskell">Haskell</option><option value="Java">Java</option><option value="JavaScript">JavaScript</option><option value="Lisp">Lisp</option><option value="Perl">Perl</option><option value="PHP">PHP</option><option value="Python">Python</option><option value="Ruby">Ruby</option><option value="Scala">Scala</option><option value="Scheme">Scheme</option>
+	</select>
+
+	<h2>First word filter</h2>
+
+	<select id="fw_combobox">
+		<option value="">Select one...</option><option value="Asp">Compiled Asp</option><option value="BASIC">Interpreted BASIC</option><option value="C">Compiled C</option><option value="C++">Compiled C++</option><option value="Clojure">Unknow Clojure</option><option value="COBOL">Unknow COBOL</option><option value="ColdFusion">Unknow ColdFusion</option><option value="Erlang">Unknow Erlang</option><option value="Fortran">Interpreted Fortran</option><option value="Groovy">Unknow Groovy</option><option value="Haskell">Unknow Haskell</option><option value="Java">Compiled Java</option><option value="JavaScript">Interpreted JavaScript</option><option value="Lisp">Interpreted Lisp</option><option value="Perl">Interpreted Perl</option><option value="PHP">Interpreted PHP</option><option value="Python">Interpreted Python</option><option value="Ruby">Interpreted Ruby</option>
+	</select>
 
 	
 
 	<script src="selectOptionFilter.js"></script>
 	<script type="text/javascript">
 		add_filter("combobox");
+		add_first_word_filter("fw_combobox");
 	</script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+// simple filter with regex system
 function add_filter(select_id, placeholder ) {
 
 	// set default values
@@ -18,6 +19,7 @@ function add_filter(select_id, placeholder ) {
 		for (var i = 0; i < options.length; i++) {
 			var option = options[i]; 
 			var optionText = option.text; 
+			// lowercase comparison for case-insensitivity
 			var lowerOptionText = optionText.toLowerCase();
 			var lowerText = text.toLowerCase(); 
 			var regex = new RegExp("^" + text, "i");
@@ -28,4 +30,17 @@ function add_filter(select_id, placeholder ) {
 			option.disabled = match || contains ? false: true ;
 		}
 	});
+}
+
+
+// create a select tag with only first word group 
+function add_first_word_filter(select_id){
+
+	// get the select tag
+	select_tag = document.getElementById(select_id);
+
+	// create a simple input and insert just before the select tag
+	var searchInput = document.createElement('select');
+	select_tag.parentElement.insertBefore(searchInput, select_tag);
+
 }
