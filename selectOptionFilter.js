@@ -39,6 +39,12 @@ function add_first_word_filter(select_id){
 	// get the select tag
 	var select_tag = document.getElementById(select_id);
 
+	// create a selects tags
+	var firstSearch = document.createElement('select');
+	var secondSearch = document.createElement('select');
+	select_tag.parentElement.insertBefore(firstSearch, select_tag);
+	select_tag.parentElement.insertBefore(secondSearch, select_tag);
+
 	// get values of this select tag, group them and push them into `words`
 	var options = select_tag.options;
 	var words = [];
@@ -53,19 +59,33 @@ function add_first_word_filter(select_id){
 		}
 	}
 
-	// create a select tag
-	var searchInput = document.createElement('select');
-	select_tag.parentElement.insertBefore(searchInput, select_tag);
-
-	// insert words as option in searchInput select
+	// insert words as option in firstSearch select
 	for (var i = 0; i < words.length; i++) {
 		var option = document.createElement('option');
 		option.textContent = words[i];
 		option.value = words[i];
-		searchInput.appendChild(option);
-		console.log(words[i]);
+		firstSearch.appendChild(option);
 	}
 
-	
+	// add an event listener to any key pressed
+	firstSearch.addEventListener("change", function (e) {
+		// erase old input
+		secondSearch.innerHTML = "" ;
+		// get the selected text
+		var text = e.target.value;
+		// loop on option, if option have the same text, we insert in in the second search
+		for (var i = 0; i < options.length; i++){
+			var option = options[i];
+			if( option.text.indexOf(text) != -1 ){
+				var secondOption = document.createElement('option');
+				secondOption.textContent = option.text;
+				secondOption.value = option.text;
+				secondSearch.appendChild(secondOption);
+			}
+		}
+		console.log(text);
+	});
+
+
 
 }
