@@ -1,11 +1,14 @@
-function add_filter(select_id) {
+function add_filter(select_id, placeholder ) {
+
+	// set default values
+	placeholder = typeof placeholder !== 'undefined' ? placeholder : "Search into theses options";
 
 	// get the select tag
 	select_tag = document.getElementById(select_id);
 
 	// create a simple input and insert just before the select tag
 	var searchInput = document.createElement('input');
-	searchInput.placeholder='Search into theses options';
+	searchInput.placeholder=placeholder;
 	select_tag.parentElement.insertBefore(searchInput, select_tag);
 
 	searchInput.addEventListener("keyup", function (e) {
