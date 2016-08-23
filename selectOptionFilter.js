@@ -5,7 +5,7 @@ function add_filter(select_id, placeholder ) {
 	placeholder = typeof placeholder !== 'undefined' ? placeholder : "Search into theses options";
 
 	// get the select tag
-	select_tag = document.getElementById(select_id);
+	var select_tag = document.getElementById(select_id);
 
 	// create a simple input and insert just before the select tag
 	var searchInput = document.createElement('input');
@@ -37,7 +37,7 @@ function add_filter(select_id, placeholder ) {
 function add_first_word_filter(select_id){
 
 	// get the select tag
-	select_tag = document.getElementById(select_id);
+	var select_tag = document.getElementById(select_id);
 
 	// get values of this select tag, group them and push them into `words`
 	var options = select_tag.options;
