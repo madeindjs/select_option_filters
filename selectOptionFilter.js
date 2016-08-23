@@ -87,7 +87,18 @@ function add_first_word_filter(select_id){
 				secondSearch.appendChild(secondOption);
 			}
 		}
-		console.log(text);
+	});
+
+	// listen second search to update main select value
+	secondSearch.addEventListener("change", function (e) {
+		// build the complete value
+		var firstWord = firstSearch.options[firstSearch.selectedIndex].value;
+		var secondPart = e.target.value;
+		var result = firstWord + " " + secondPart ;
+
+		select_tag.value = result ;
+		console.log(result);
+
 	});
 
 
