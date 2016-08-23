@@ -34,7 +34,7 @@ function add_filter(select_id, placeholder ) {
 
 
 // create a select tag with only first word group 
-function add_first_word_filter(select_id){
+function add_first_word_filter(select_id, callback){
 
 	// get the select tag & hide it
 	var select_tag = document.getElementById(select_id);
@@ -102,6 +102,11 @@ function add_first_word_filter(select_id){
 
 	});
 
+
+	// if callback is set, call him
+	if(typeof callback !== 'undefined'){
+		callback()
+	}
 
 
 }
