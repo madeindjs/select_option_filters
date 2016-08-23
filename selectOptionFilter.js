@@ -98,15 +98,23 @@ function add_first_word_filter(select_id, callback){
 		var result = firstWord + " " + secondPart ;
 
 		select_tag.value = result ;
+
+		// if a true value is selected
+		
+
+		if( select_tag.options[select_tag.selectedIndex].value ){
+
+			console.log(select_tag.options[select_tag.selectedIndex].value);
+			// if callback is set, call him
+			if(typeof callback != 'undefined'  ){
+				callback()
+			}	
+		}
+
+
+		
 		console.log(result);
 
 	});
-
-
-	// if callback is set, call him
-	if(typeof callback !== 'undefined'){
-		callback()
-	}
-
 
 }

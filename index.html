@@ -34,7 +34,9 @@
 	<script src="selectOptionFilter.js"></script>
 	<script type="text/javascript">
 		add_filter("combobox");
-		add_first_word_filter("fw_combobox");
+		add_first_word_filter("fw_combobox", function(){
+			console.log('value applied');
+		});
 	</script>
 </body>
 </html>
