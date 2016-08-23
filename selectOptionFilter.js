@@ -76,10 +76,14 @@ function add_first_word_filter(select_id){
 		// loop on option, if option have the same text, we insert in in the second search
 		for (var i = 0; i < options.length; i++){
 			var option = options[i];
-			if( option.text.indexOf(text) != -1 ){
+			var optionText = option.text;
+			if( optionText.indexOf(text) != -1 ){
+				// delete first word of the option text
+				var secondText = optionText.substr(optionText.indexOf(" ") + 1);
+				// create it & insert in on secondSearch
 				var secondOption = document.createElement('option');
-				secondOption.textContent = option.text;
-				secondOption.value = option.text;
+				secondOption.textContent = secondText;
+				secondOption.value = secondText;
 				secondSearch.appendChild(secondOption);
 			}
 		}
